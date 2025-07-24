@@ -92,8 +92,10 @@ function App() {
         age,
         walk,
       });
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
       const propRes = await fetch(`http://localhost:3001/api/search?${params.toString()}`);
       const propData = await propRes.json();
+      
       
       if (!propData.success) {
         throw new Error(propData.error || 'APIリクエストに失敗しました');
